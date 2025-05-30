@@ -1,1 +1,0 @@
-Aquairing the properties of parent class into the child class is called as Inheritence.

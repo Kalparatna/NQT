@@ -1,3 +1,0 @@
-An exception is an event that Ocurs during execution of program that disupts normal flow of program.
-
-Situation 

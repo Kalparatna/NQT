@@ -1,7 +1,0 @@
-Magling is uesd to access private data members.
-
-what is thightly encapsulation:
-    class who's all variable are private.
-
-    how to acess them 
-        using setter getter.
