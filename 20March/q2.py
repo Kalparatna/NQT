@@ -25,51 +25,66 @@ Path: 0 -> 1 -> 2, Total Weight: 8
 
 
 '''
-from collections import defaultdict
+# Helper function to perform topological sort
+def topological_sort(v, visited, stack, graph):
+    visited[v] = True
+    for neighbor, weight in graph[v]:
+        if not visited[neighbor]:
+            topological_sort(neighbor, visited, stack, graph)
+    stack.append(v)
 
-def dfs(graph, current, dest, visited, path, weight, result):
-    if current == dest:
-        if weight < result["min_weight"]:
-            result["min_weight"] = weight
-            result["best_path"] = list(path)
-        return
-
-    for neighbor, w in graph[current]:
-        if neighbor not in visited:
-            visited.add(neighbor)
-            path.append(neighbor)
-            dfs(graph, neighbor, dest, visited, path, weight + w, result)
-            path.pop()
-            visited.remove(neighbor)
-
-def find_shortest_path_dfs_only(N, M, edges, SRC, DES):
-    graph = defaultdict(list)
+# Main function
+def shortest_path_in_dag(N, M, edges, SRC, DES):
+    # Step 1: Build graph
+    graph = [[] for _ in range(N)]
     for u, v, w in edges:
         graph[u].append((v, w))
 
-    visited = set()
-    visited.add(SRC)
-    path = [SRC]
-    result = {
-        "min_weight": float('inf'),
-        "best_path": []
-    }
+    # Step 2: Topological Sort
+    visited = [False] * N
+    stack = []
+    for i in range(N):
+        if not visited[i]:
+            topological_sort(i, visited, stack, graph)
 
-    dfs(graph, SRC, DES, visited, path, 0, result)
+    # Step 3: Initialize distances
+    dist = [float('inf')] * N
+    dist[SRC] = 0
+    parent = [-1] * N
 
-    if result["min_weight"] == float('inf'):
-        return "No path found"
+    # Step 4: Relax edges in topological order
+    while stack:
+        u = stack.pop()
+        if dist[u] != float('inf'):
+            for v, w in graph[u]:
+                if dist[v] > dist[u] + w:
+                    dist[v] = dist[u] + w
+                    parent[v] = u
 
-    path_str = ' -> '.join(map(str, result["best_path"]))
-    return f"Path: {path_str}, Total Weight: {result['min_weight']}"
-    
-if __name__ == "__main__":
-    N, M = map(int, input().split())
-    edges = []
-    for _ in range(M):
-        u, v, w = map(int, input().split())
-        edges.append((u, v, w))
-    SRC, DES = map(int, input().split())
+    # Step 5: Reconstruct path
+    path = []
+    curr = DES
+    if dist[DES] == float('inf'):
+        print("No path exists")
+        return
+    while curr != -1:
+        path.append(curr)
+        curr = parent[curr]
+    path.reverse()
 
-    output = find_shortest_path_dfs_only(N, M, edges, SRC, DES)
-    print(output)
+    # Output
+    print(" -> ".join(map(str, path)))
+    print(dist[DES])
+
+# Example usage:
+N = 3
+M = 3
+edges = [
+    (0, 1, 5),
+    (1, 2, 3),
+    (0, 2, 10)
+]
+SRC = 0
+DES = 2
+
+shortest_path_in_dag(N, M, edges, SRC, DES)
