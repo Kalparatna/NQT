@@ -4,20 +4,14 @@ You're given a list of numbers. Your task is to find how many pairs of numbers i
 
 Input Format
 The first line of input will contain a single integer 
-T
 T, denoting the number of test cases.
 Each test case consists of two lines of input.
 The first line of each test case contain 
 N
 N, length of array 
-a
-r
-r
 arr.
 The second line consist of the array 
-a
-r
-r
+
 arr.
 Output Format
 For each test case, output on a new line the number of divisible pairs.
@@ -45,6 +39,13 @@ Test Case 1: There are only two pairs formed- (6,2) and (1,3).
 Test case 2: These are the 7 pairs that are formed- (2,2), (1,7), (1,5), (1,3), (7,5), (7,3), (5,3).
 Test case 3: There is only one pair that is formed- (4,8).
 '''
+
+
+# even + odd = odd ❌
+# even + even = even 
+# odd + odd = even
+
+
 t= int(input())
 while t>0:
     arr = list(map(int, input().split()))
@@ -56,8 +57,8 @@ while t>0:
         else:
             odd += 1
 
-    even_pairs = (even * (even -1)) // 2
-    odd_pairs = (odd * (odd -1)) // 2
+    even_pairs = (even * (even -1)) // 2            # even + even = even            #comination : n * (n -1) // 2  (simplified formula)
+    odd_pairs = (odd * (odd -1)) // 2               # odd + odd = even
 
     print(even_pairs + odd_pairs)
     break
