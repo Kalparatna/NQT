@@ -23,42 +23,35 @@ Example 2:
 9
 
 '''
-
-
+#But only works when element two times repeated , not more times
 n = int(input())
 nums = list(map(int, input().split()))
-print(sum(nums)-sum(set(nums)))
 
+unique = 0
+for i in nums:
+    unique ^= i
 
-#Or
-n = int(input())
-nums = list(map(int,input().split()))
-result = 0
-for num in nums:
-    result ^= num
-print(result)
+print(unique)
 
 
 #Other Approach
-# In Case where more than 2 Numbers are same
-
 n = int(input())
 nums = list(map(int, input().split()))
 
-#Create a manual dictionary-like structure
-frequency = {}
+freq = {}
+for i in nums:
+    freq[i] = freq.get(i, 0) + 1
 
-# Count the occurrences of each number
+# Method 1: Print all unique elements (those that appear exactly once)
+result = []
+for key, value in freq.items():
+    if value == 1:
+        result.append(key)
+
+print(*result)
+
+# Method 2: Print only the first unique element (preserves input order)
 for num in nums:
-    if num in frequency:
-        frequency[num] += 1
-    else:
-        frequency[num] = 1
-
-res = []
-#Finding the unique element
-for num in nums:
-    if frequency[num] == 1:
-        res.append(num)
-
-print(*res)
+    if freq[num] == 1:
+        print(num)
+        break
