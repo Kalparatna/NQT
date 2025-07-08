@@ -1,17 +1,15 @@
 '''
 Find the middle of a given linked list in C
 '''
-
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
-
+        
 class LinkedList:
-    def __init__(self,data):
+    def __init__(self):
         self.head = None
 
-    # Function to append a new node at the end of the list
     def append(self, data):
         new_node = Node(data)
         if not self.head:
@@ -22,37 +20,35 @@ class LinkedList:
             last = last.next
         last.next = new_node
 
-    # Function to find the middle of the linked list
-    def find_middle(self):
+    def Find_middle(self):
         if not self.head:
-            print("The list is empty.")
+            print("The List is Empty")
             return
-
         slow = self.head
         fast = self.head
 
         while fast and fast.next:
-            slow = slow.next          # Move slow by one step
-            fast = fast.next.next     # Move fast by two steps
+            slow = slow.next
+            fast = fast.next.next
 
-        print("The middle element is:", slow.data)
+        print("The Middle Element is:", slow.data)
 
-    def print_list(self):
+    def print_linkedlist(self):
         temp = self.head
         while temp:
             print(temp.data, end=" -> ")
             temp = temp.next
         print("None")
 
-ll = LinkedList()
-ll.append(1)
-ll.append(2)
-ll.append(3)
-ll.append(4)
-ll.append(5)
+# Test the LinkedList
+l = LinkedList()
+l.append(1)
+l.append(2)
+l.append(3)
+l.append(4)
+l.append(5)
 
 print("Linked List:")
-ll.print_list()
+l.print_linkedlist()
 
-
-ll.find_middle()
+l.Find_middle()
