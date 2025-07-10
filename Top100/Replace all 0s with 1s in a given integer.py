@@ -3,6 +3,8 @@
 def zeroTone(n):
     return int(str(n).replace("0", "1"))
 
+#Or
+
 def withoutfuntion(n):
     strnum = str(n)
     result = ""

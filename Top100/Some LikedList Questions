@@ -1,0 +1,68 @@
+🔰 Beginner Level
+These help you understand the basics of linked lists.
+
+Create a singly linked list and print it
+
+Insert a node at the beginning, end, or any given position
+
+Delete a node at the beginning, end, or any position
+
+Find the length of a linked list (iterative and recursive)
+
+Search for an element in the linked list
+
+Reverse a linked list (iterative and recursive)
+
+Find the middle element of a linked list ✅ (You already did this)
+
+🧩 Intermediate Level
+These involve more logic or pointer manipulation.
+
+Detect a loop in a linked list (Floyd’s Cycle Detection)
+
+Remove a loop from a linked list
+
+Find the nth node from the end of a linked list
+
+Check if the linked list is a palindrome
+
+Merge two sorted linked lists
+
+Remove duplicates from a sorted or unsorted linked list
+
+Find the intersection point of two linked lists
+
+Add two numbers represented by linked lists
+
+⚙️ Advanced Level
+These are more algorithmically heavy and are common in interviews.
+
+Sort a linked list using Merge Sort
+
+Clone a linked list with next and random pointers
+
+Rotate a linked list k times
+
+Flatten a multi-level linked list
+
+Segregate even and odd nodes
+
+Reverse nodes in k-group
+
+Detect and remove duplicate nodes in O(n) time using hashing
+
+Check whether a linked list is circular
+
+Convert a binary tree to a doubly linked list (in-order traversal)
+
+🧠 Bonus: Trickier Challenges
+Flatten a linked list where each node has a next and a down pointer
+
+Copy a linked list where each node has a random pointer
+
+Rearrange linked list in the form: L0 → Ln → L1 → Ln-1 → L2 …
+
+Intersection of two linked lists using length difference
+
+Find the first non-repeating character using a linked list (streaming)
+
