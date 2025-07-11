@@ -68,20 +68,24 @@ The output should be a positive integer number or print the message (if any) giv
 (Check the output in Example 1, Example 2).
 '''
 
-def sum_of_digits(n):
+
+def Single_digit_sum(n):
     while n >= 10:
         n = sum(int(digit) for digit in str(n))
+    return n
+
+def sum_of_digits(n):
+    n = sum(int(digit) for digit in str(n))
     return n
 
 # Input
 N = int(input())
 R = int(input())
 
-
 if R == 0:
     print(0)
 else:
-    digit_sum = sum(int(digit) for digit in str(N))              #Cant We Sum of Digits cause Dont Want singal digit sum initially
-    total_sum = digit_sum * R
-    result = sum_of_digits(total_sum)
+    digit_sum = sum_of_digits(N)   # Step 1: sum digits once
+    total_sum = digit_sum * R      # Step 2: repeat R times
+    result = Single_digit_sum(total_sum)  # Step 3: reduce to single digit
     print(result)
