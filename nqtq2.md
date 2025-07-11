@@ -43,5 +43,3 @@ print(toggled)
 decimal = int(toggled, 2)    #convert to decimal
 
 print(decimal)
-
-```

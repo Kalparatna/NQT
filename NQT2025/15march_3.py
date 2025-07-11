@@ -24,11 +24,33 @@ Output:
 
 '''
 required_skill = input().split()
+n = int(input())
 
-candidates = int(input())
+skill_map = {}
+for i, skill in enumerate(required_skill):
+    skill_map[skill] = i
 
-candidate_skills = []  
-for i in range(candidates):
-    subset_skills = input().split()  
-    candidate_skills.append(subset_skills)  
+candidate_masks = []
+for _ in range(n):
+    skills = input().split()
+    mask = 0
+    for s in skills:
+        if s in skill_map:
+            mask |= 1 << skill_map[s]
+    candidate_masks.append(mask)
+
+dp = {0: []}  # key = skill bitmask, value = list of indices
+
+for i in range(n):
+    new_dp = {}
+    for skill_set in dp:
+        new_set = skill_set | candidate_masks[i]
+        team = dp[skill_set] + [i]
+        if new_set not in dp or len(dp[new_set]) > len(team):
+            new_dp[new_set] = team
+    for k in new_dp:
+        dp[k] = new_dp[k]
+
+full_mask = (1 << len(required_skill)) - 1
+print(*dp[full_mask])
 

@@ -51,8 +51,8 @@ T = int(input())
 for i in range(T):
     m, n = map(int, input().split())
     matrix = []
+
     for row in range(m):
-        
         row = list(map(int, input().split()))
         matrix.append(row)
 

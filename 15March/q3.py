@@ -64,6 +64,7 @@ def smaller_sufficient_team(req_skills, people):
     return dp[full_mask]
 
 
+#With Funtion
 
 def smaller_sufficient_team(req_skills, people):
     from itertools import combinations

@@ -73,13 +73,15 @@ def sum_of_digits(n):
         n = sum(int(digit) for digit in str(n))
     return n
 
+# Input
 N = int(input())
 R = int(input())
+
 
 if R == 0:
     print(0)
 else:
-    digit_sum = sum(int(digit) for digit in str(N))
+    digit_sum = sum(int(digit) for digit in str(N))              #Cant We Sum of Digits cause Dont Want singal digit sum initially
     total_sum = digit_sum * R
-   
-    print(total_sum)
+    result = sum_of_digits(total_sum)
+    print(result)
