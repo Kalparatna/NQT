@@ -46,4 +46,34 @@ for i in sorted_arr:
         print(i)
         break
     
+#or 
 
+def generate_permutations(chars, index, result, b):
+    if index == len(chars):
+        num = int("".join(chars))
+        if num > b:
+            result.append(num)
+        return
+
+    used = set()
+    for i in range(index, len(chars)):
+        if chars[i] in used:
+            continue
+        used.add(chars[i])
+        chars[i], chars[index] = chars[index], chars[i]
+        generate_permutations(chars[:], index + 1, result, b)
+
+def find_next_larger(a, b):
+    chars = list(str(a))
+    chars.sort()
+    result = []
+    generate_permutations(chars, 0, result, b)
+    return min(result) if result else -1
+
+# Input
+a_str, b_str = input().split()
+a = int(a_str)
+b = int(b_str)
+
+# Output
+print(find_next_larger(a, b))
