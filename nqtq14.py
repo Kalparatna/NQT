@@ -1,5 +1,5 @@
 '''
-Given two numbers M and N. The task is to find the position of rightmost different bit 1) in binary representation of numbers.
+Given two numbers M and N. The task is to find the position of rightmost different bit (1) in binary representation of numbers.
 
 Input:
 

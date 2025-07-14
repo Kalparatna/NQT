@@ -1,0 +1,8 @@
+-we can't create object of abstrct class,
+bacause it is not implemented 
+
+#from abc import ABC, abstractmethod
+
+
+
+- it is possible to declare constuctor inside abstract class, but object not created

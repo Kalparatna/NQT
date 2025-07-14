@@ -1,0 +1,15 @@
+Deep Copy:
+A deep copy creates a new object and recursively copies all objects referenced by the original object.
+It creates a completely independent copy where changes made in the copied object do not affect the original, and vice versa.
+Deep copy is often used when dealing with nested data structures or objects with complex interdependencies.
+In Python, you can create a deep copy using the copy module's deepcopy() function.
+Example of a deep copy with a list:
+
+import copy
+
+original_list = [1, [2, 3], 4]
+deep_copied_list = copy.deepcopy(original_list)
+
+deep_copied_list[1][0] = 'X'
+
+print(original_list)  # Output: [1, [2, 3], 4]
