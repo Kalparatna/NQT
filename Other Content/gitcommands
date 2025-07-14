@@ -1,5 +1,0 @@
- git remote add origin https://github.com/Kalparatna/NQT-coding.git
-
- git add nqtq1.py
- git commit -m "files adeed"
- git push -u origin main
