@@ -1,6 +1,4 @@
 arr = list(map(int, input().split()))
-increasing = sorted(arr)
-decreasing = sorted(arr, reverse=True)
 
-print(f"Increasing Order : {increasing}")
-print(f"Decreasing Order: {decreasing}")
+print(f"incresing {sorted(arr)}")
+print(f"Decresing {sorted(arr,reverse=True)}")
